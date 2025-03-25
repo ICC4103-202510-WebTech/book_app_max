@@ -1,0 +1,14 @@
+<div class="container">
+    <h1> Home </h1>
+    <a href="/about"> About </a> 
+    <%= @count %>
+
+    <% if @loop > 3%>
+     <h2> Numero myor que 3 </h2>
+    <%end%>
+
+    <% @array.each do |value| %>
+     <h3> <%= value%> </h3>
+    <% end %>
+</div>
+
