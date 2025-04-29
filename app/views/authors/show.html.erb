@@ -1,0 +1,47 @@
+<h1><%= @author.first_name %> <%= @author.last_name %></h1>
+
+<div class="card mb-4">
+  <div class="card-body">
+    <h5 class="card-title">Author Details</h5>
+    <p class="card-text"><strong>First Name:</strong> <%= @author.first_name %></p>
+    <p class="card-text"><strong>Last Name:</strong> <%= @author.last_name %></p>
+    <p class="card-text"><strong>Birth Year:</strong> <%= @author.birth %></p>
+    <p class="card-text"><strong>Books Count:</strong> <%= @author.books.count %></p>
+  </div>
+</div>
+
+<h3>Books by this Author</h3>
+
+<% if @author.books.any? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Year</th>
+        <th scope="col">Editorial</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @author.books.each do |book| %>
+        <tr>
+          <th scope="row"><%= book.id %></th>
+          <td><%= book.title %></td>
+          <td><%= book.year %></td>
+          <td><%= book.editorial %></td>
+          <td>
+            <%= link_to "Show", book_path(book), class: "btn btn-sm btn-info" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>This author has no books yet.</p>
+<% end %>
+
+<div class="mt-3">
+  <%= link_to "Edit Author", edit_author_path(@author), class: "btn btn-warning" %>
+  <%= link_to "Back to Authors", authors_path, class: "btn btn-secondary" %>
+</div>
