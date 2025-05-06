@@ -10,13 +10,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
-  
   get "/home", to: "home#index"
   get "/about", to: "home#about"
-  
   # Rutas para libros (Books)
   resources :books
-  
   # Rutas para autores (Authors)
   resources :authors
 end
