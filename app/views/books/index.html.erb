@@ -1,5 +1,9 @@
 <h1> Books </h1>
 
+<div class="mb-3">
+  <%= link_to "New Book", new_book_path, class: "btn btn-primary" %>
+</div>
+
 <table class="table">
   <thead>
     <tr>
@@ -17,7 +21,11 @@
 				<td><%= book.title %></td>
 				<td><%= book.year %></td>
 				<td><%= book.editorial %></td>
-				<td> <%= link_to "show" , 'books/' + book.id.to_s %></td>
+				<td>
+          <%= link_to "Show", book_path(book), class: "btn btn-sm btn-info" %>
+          <%= link_to "Edit", edit_book_path(book), class: "btn btn-sm btn-warning" %>
+          <%= link_to "Delete", book_path(book), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+        </td>
     	</tr>
 		<% end %>
 	</tbody>

@@ -1,0 +1,39 @@
+<h1>New Author</h1>
+
+<%= form_with(model: @author, local: true) do |form| %>
+  <% if @author.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(@author.errors.count, "error") %> prohibited this author from being saved:</h2>
+      <ul>
+        <% @author.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :first_name, class: "form-label" %>
+    <%= form.text_field :first_name, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :last_name, class: "form-label" %>
+    <%= form.text_field :last_name, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :birth, "Birth Year", class: "form-label" %>
+    <%= form.number_field :birth, class: "form-control", min: 1 %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.rich_text_area :description, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Create Author", class: "btn btn-primary" %>
+    <%= link_to "Back to Authors", authors_path, class: "btn btn-secondary" %>
+  </div>
+<% end %>

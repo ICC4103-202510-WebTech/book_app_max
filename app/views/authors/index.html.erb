@@ -1,5 +1,9 @@
 <h1>Authors</h1>
 
+<div class="mb-3">
+  <%= link_to "New Author", new_author_path, class: "btn btn-primary" %>
+</div>
+
 <table class="table">
   <thead>
     <tr>
@@ -21,6 +25,8 @@
         <td><%= author.books.count %></td>
         <td>
           <%= link_to "Show", author_path(author), class: "btn btn-sm btn-info" %>
+          <%= link_to "Edit", edit_author_path(author), class: "btn btn-sm btn-warning" %>
+          <%= link_to "Delete", author_path(author), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
         </td>
       </tr>
     <% end %>
