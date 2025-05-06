@@ -27,6 +27,11 @@
     <%= form.number_field :birth, class: "form-control", min: 1 %>
   </div>
 
+  <div class="mb-3">
+    <%= form.label :description %>
+    <%= form.rich_text_area :description %>
+  </div>
+
   <div class="actions">
     <%= form.submit "Update Author", class: "btn btn-primary" %>
     <%= link_to "Back to Author", author_path(@author), class: "btn btn-secondary" %>
